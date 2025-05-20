@@ -1,20 +1,33 @@
-import config as cfg
 import pygame
+import sys
+from sprites import *
+from config import *
 
-pygame.init() # INIT PYGAME
+class main:
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.clock = pygame.time.Clock()
+        self.font = pygame.font.Font("Arial", 32)
+        self.running = True
 
-screen = pygame.display.set_mode((cfg.WIDTH, cfg.LENGTH))
+    def new(self):
+        self.playing = True
 
-clock = pygame.time.Clock()
+        self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.blocks = pygame.sprite.LayeredUpdates()
+        self.enemies = pygame.sprite.LayeredUpdates()
+        self.attacks = pygame.sprite.LayeredUpdates()
 
-run = True
-while run:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
+        self.player
 
-    clock.tick(60)
-    screen.fill("purple")
-    pygame.display.flip()
-
-pygame.quit()
+    def update(self):
+        pass
+    def draw(self):
+        pass
+    def main(self):
+        pass
+    def game_over(self):
+        pass
+    def intro_screen(self):
+        pass
