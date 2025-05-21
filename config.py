@@ -1,4 +1,10 @@
 WIDTH = 640
 HEIGHT = 490
+TILE_SIZE = 32
+
+FPS = 60
+
+RED = (255, 0, 0)
+BLACK = (0,0,0)
 
 PLAYER_LAYER = 1

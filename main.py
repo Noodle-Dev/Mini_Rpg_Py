@@ -8,9 +8,9 @@ class main:
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         self.clock = pygame.time.Clock()
-        self.font = pygame.font.Font("Arial", 32)
+        #self.font = pygame.font.Font("Arial", 32)
         self.running = True
-
+    
     def new(self):
         self.playing = True
 
@@ -19,15 +19,42 @@ class main:
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
 
-        self.player
+        self.player = Player(self, 1, 2)
 
+    def events(self):
+        #Game loop event
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.playing = False
+                self.running = False
     def update(self):
-        pass
+        self.all_sprites.update()
+    
     def draw(self):
-        pass
-    def main(self):
-        pass
+        #Game loop draw
+        self.screen.fill(BLACK)
+        self.all_sprites.draw(self.screen)
+        self.clock.tick(FPS)
+        pygame.display.update()
+
+    def main(self): # Game loop
+        while self.playing:
+            self.events()
+            self.update()
+            self.draw()
+        self.running = False
     def game_over(self):
         pass
     def intro_screen(self):
         pass
+
+g = main()
+g.intro_screen()
+g.new()
+
+while g.running:
+    g.main()
+    g.game_over()
+
+pygame.quit()
+sys.exit()
