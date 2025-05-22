@@ -8,3 +8,4 @@ RED = (255, 0, 0)
 BLACK = (0,0,0)
 
 PLAYER_LAYER = 1
+PLAYER_SPEED = 3
